@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="act" class="com.stackroute.domain.Actor">
+        <constructor-arg index="0" value="prathyu"/>
+        <constructor-arg name="gender" value="female"/>
+        <constructor-arg name="age" value="22" type="int"/>
+
+    </bean>
+    <bean id="act1" class="com.stackroute.domain.Actor">
+        <constructor-arg index="0" value="maggi"/>
+        <constructor-arg name="gender" value="female"/>
+        <constructor-arg name="age" value="27" type="int"/>
+
+    </bean>
+    <bean id="act2" class="com.stackroute.domain.Actor">
+        <constructor-arg index="0" value="pallavi"/>
+        <constructor-arg name="gender" value="female"/>
+        <constructor-arg name="age" value="17" type="int"/>
+
+    </bean>
+    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg name="actor">
+            <list>
+                <ref bean="act"/>
+                <ref bean="act1"/>
+                <ref bean="act2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
