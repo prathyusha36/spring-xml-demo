@@ -13,29 +13,24 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 
-
-/**
- * Hello world!
- *
- */
 public class Main
 {
     public static void main( String[] args )
     {
-         /*ApplicationContext context=new ClassPathXmlApplicationContext("file:src/beans.xml");
+         ApplicationContext context=new ClassPathXmlApplicationContext("file:src/beans.xml");
          Movie m=context.getBean("movie",Movie.class);
-         m.showInfo();*/
+         m.showInfo();
 
 
         BeanFactory factory=new XmlBeanFactory(new FileSystemResource("src/beans.xml"));
-        Movie m=factory.getBean("movie",Movie.class);
+        Movie m1=factory.getBean("movie",Movie.class);
         m.showInfo();
 
-        /*BeanDefinitionRegistry beanFactory=new DefaultListableBeanFactory();
+        BeanDefinitionRegistry beanFactory=new DefaultListableBeanFactory();
         XmlBeanDefinitionReader reader=new XmlBeanDefinitionReader(beanFactory);
         reader.loadBeanDefinitions(new FileSystemResource("src/beans.xml"));
-        Movie m=((DefaultListableBeanFactory) beanFactory).getBean(Movie.class);
-        m.showInfo();*/
+        Movie m2=((DefaultListableBeanFactory) beanFactory).getBean(Movie.class);
+        m.showInfo();
 
     }
 }
